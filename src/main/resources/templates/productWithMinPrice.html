@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search min price</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-size: x-large; margin-bottom: 20px">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images\logo\DSCF8200.jpg" alt="" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/allStores">Stores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/allProducts">Products</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="float-end">
+                <a class="nav-link" href="/cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-cart2"
+                         viewBox="0 0 16 16">
+                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                    </svg>
+                    <span class="badge bg-secondary" th:text="${cartItemsCount}"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <h3 th:text="${info}"></h3>
+    <div class="row row align-items-end">
+        <div class="row">
+            <div class="card" th:each="product : ${searchedProducts}"
+                 style="text-align: center; margin-bottom: 20px; width: 18rem">
+                <button type="button" class="btn btn-warning btn-sm" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-star-fill"
+                         viewBox="0 0 16 16" style="fill: rgba(251,255,61,0.56)">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                </button>
+                <img src="images\logo\DSCF8200.jpg" class="card-img-top" alt="productImage" style="object-fit: fill">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Product name: ' + ${product.name}"></h5>
+                    <p class="card-text"><small class="text-muted"
+                                                th:text="'More details: ' +${product.description}"></small></p>
+                    <p class="card-text" th:text="'Product price: ' +${product.price} + ' $'"></p>
+                    <p class="card-text" th:text="'Amount available: ' +${product.amountAvailable}"></p>
+                    <p class="card-text"><small class="text-muted"
+                                                th:text="'Shop location: ' + ${product.shop.address} +', ' + ${product.shop.city}"></small>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <form th:action="@{/store/(id=${product.id})}">
+                        <input type="hidden" name="id" th:value="${product.id}">
+                        <input type="hidden" name="productName" th:value="${product.name}">
+                        <input type="hidden" name="city" th:value="${product.shop.city}">
+                        <input type="hidden" name="amount" th:value="${product.amountAvailable}">
+                        <button type="submit" class="btn btn-primary">Buy in this store</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h3 th:text="${message}"></h3>
+    <div class="row row align-items-end">
+        <div class="row">
+            <div class="card" th:each="product : ${allProducts}"
+                 style="text-align: center; margin-bottom: 20px; width: 18rem">
+                <img src="images\logo\DSCF8200.jpg" class="card-img-top" alt="productImage" style="object-fit: fill">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Product name: ' + ${product.name}"></h5>
+                    <p class="card-text"><small class="text-muted"
+                                                th:text="'More details: ' +${product.description}"></small></p>
+                    <p class="card-text" th:text="'Product price: ' +${product.price} + ' $'"></p>
+                    <p class="card-text" th:text="'Amount available: ' +${product.amountAvailable}"></p>
+                    <p class="card-text"><small class="text-muted"
+                                                th:text="'Shop location: ' + ${product.shop.address} +', ' + ${product.shop.city}"></small>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/store/(id=${product.id})}" class="btn btn-primary">Buy in this store</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
