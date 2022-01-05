@@ -1,5 +1,6 @@
 package pl.storedemo.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.storedemo.entities.DelivererImpl;
@@ -11,11 +12,10 @@ import java.util.NoSuchElementException;
 
 
 @Service
+@AllArgsConstructor
 public class DelivererServiceImpl implements DeliversService {
 
-    @Autowired
-    private DelivererRepository delivererRepository;
-
+    private final DelivererRepository delivererRepository;
 
     @Override
     public List<DelivererImpl> getAllDeliverers() {

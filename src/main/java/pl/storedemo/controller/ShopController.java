@@ -1,6 +1,6 @@
 package pl.storedemo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,43 +15,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@AllArgsConstructor
 public class ShopController {
 
-    @Autowired
-    private ShopService shopService;
-
-    @Autowired
-    private ShopRepository shopRepository;
-
-    @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
-    private CartItemRepository cartItemRepository;
-
-    @Autowired
-    private CartItemServiceImpl cartItemService;
-
-    @Autowired
-    private OrderRepository orderRepository;
-
-    @Autowired
-    private OrderServiceImpl orderService;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private UserServiceImpl userService;
-
-    @Autowired
-    private DelivererRepository delivererRepository;
-
-    @Autowired
-    private DelivererServiceImpl delivererService;
+    private final ShopService shopService;
+    private final ShopRepository shopRepository;
+    private final ProductService productService;
+    private final ProductRepository productRepository;
+    private final CartItemRepository cartItemRepository;
+    private final CartItemServiceImpl cartItemService;
+    private final OrderRepository orderRepository;
+    private final OrderServiceImpl orderService;
+    private final UserRepository userRepository;
+    private final UserServiceImpl userService;
+    private final DelivererRepository delivererRepository;
+    private final DelivererServiceImpl delivererService;
 
     @GetMapping("/")
     public String gotToIndex(ModelMap model) {

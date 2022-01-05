@@ -1,5 +1,6 @@
 package pl.storedemo.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.storedemo.entities.CartItem;
@@ -12,10 +13,10 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class CartItemServiceImpl implements CartItemService {
 
-    @Autowired
-    private CartItemRepository cartItemRepository;
+    private final CartItemRepository cartItemRepository;
 
     @Override
     public void createNewCartItem(CartItem cartItem) {
