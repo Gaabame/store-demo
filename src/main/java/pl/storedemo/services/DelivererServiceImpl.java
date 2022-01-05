@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 public class DelivererServiceImpl implements DeliversService {
 
     @Autowired
-    DelivererRepository delivererRepository;
+    private DelivererRepository delivererRepository;
 
 
     @Override

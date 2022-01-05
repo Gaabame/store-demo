@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    OrderRepository orderRepository;
+    private OrderRepository orderRepository;
 
     @Override
     public void createNewOrder(OrderCart order) {
