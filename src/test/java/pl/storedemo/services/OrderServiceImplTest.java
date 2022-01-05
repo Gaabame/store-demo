@@ -25,22 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrderServiceImplTest {
 
     @MockBean
-    CartItemRepository cartItemRepository;
-
-    @MockBean
-    ProductRepository productRepository;
-
-    @MockBean
     OrderRepository orderRepository;
-
-    @MockBean
-    UserRepository userRepository;
-
-    @MockBean
-    ShopRepository shopRepository;
-
-    @MockBean
-    DelivererRepository delivererRepository;
 
     @Autowired
     OrderServiceImpl service;

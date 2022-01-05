@@ -25,20 +25,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 class DelivererServiceImplTest {
 
-    @MockBean
-    CartItemRepository cartItemRepository;
-
-    @MockBean
-    ProductRepository productRepository;
 
     @MockBean
     OrderRepository orderRepository;
-
-    @MockBean
-    UserRepository userRepository;
-
-    @MockBean
-    ShopRepository shopRepository;
 
     @MockBean
     DelivererRepository delivererRepository;

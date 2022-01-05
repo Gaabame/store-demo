@@ -30,21 +30,6 @@ class CartItemServiceImplTest {
     @MockBean
     CartItemRepository repository;
 
-    @MockBean
-    ProductRepository productRepository;
-
-    @MockBean
-    OrderRepository orderRepository;
-
-    @MockBean
-    UserRepository userRepository;
-
-    @MockBean
-    ShopRepository shopRepository;
-
-    @MockBean
-    DelivererRepository delivererRepository;
-
     @Autowired
     CartItemServiceImpl service;
 

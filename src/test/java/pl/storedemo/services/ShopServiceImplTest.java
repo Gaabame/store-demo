@@ -24,22 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ShopServiceImplTest {
 
     @MockBean
-    CartItemRepository cartItemRepository;
-
-    @MockBean
-    ProductRepository productRepository;
-
-    @MockBean
-    OrderRepository orderRepository;
-
-    @MockBean
-    UserRepository userRepository;
-
-    @MockBean
     ShopRepository shopRepository;
-
-    @MockBean
-    DelivererRepository delivererRepository;
 
     @Autowired
     ShopServiceImpl service;
