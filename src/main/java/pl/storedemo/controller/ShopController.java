@@ -18,40 +18,40 @@ import java.util.Optional;
 public class ShopController {
 
     @Autowired
-    ShopService shopService;
+    private ShopService shopService;
 
     @Autowired
-    ShopRepository shopRepository;
+    private ShopRepository shopRepository;
 
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     @Autowired
-    CartItemRepository cartItemRepository;
+    private CartItemRepository cartItemRepository;
 
     @Autowired
-    CartItemServiceImpl cartItemService;
+    private CartItemServiceImpl cartItemService;
 
     @Autowired
-    OrderRepository orderRepository;
+    private OrderRepository orderRepository;
 
     @Autowired
-    OrderServiceImpl orderService;
+    private OrderServiceImpl orderService;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Autowired
-    DelivererRepository delivererRepository;
+    private DelivererRepository delivererRepository;
 
     @Autowired
-    DelivererServiceImpl delivererService;
+    private DelivererServiceImpl delivererService;
 
     @GetMapping("/")
     public String gotToIndex(ModelMap model) {

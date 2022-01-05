@@ -11,7 +11,7 @@ import java.util.List;
 public class ShopServiceImpl implements ShopService {
 
     @Autowired
-    ShopRepository shopRepository;
+    private ShopRepository shopRepository;
 
     @Override
     public void createNewShop(Shop shop) {

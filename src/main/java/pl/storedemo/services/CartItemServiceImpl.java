@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class CartItemServiceImpl implements CartItemService {
 
     @Autowired
-    CartItemRepository cartItemRepository;
+    private CartItemRepository cartItemRepository;
 
     @Override
     public void createNewCartItem(CartItem cartItem) {
